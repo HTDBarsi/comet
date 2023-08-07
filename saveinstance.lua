@@ -173,11 +173,9 @@ getgenv().saveinstance = function(saving)
         end
         write("</Item>")
     end
-    local filename = "game_"..game.PlaceId
-    pcall(function()
-        filename = string.gsub(game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Name,"\46"," ")
+    s,re = pcall(function()
+        writefile(game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Name..".rbxlx",table.concat(temp," ").."</roblox>")
     end)
-
-    writefile(("%s.rbxlx"):format(filename),table.concat(temp," ").."</roblox>")
-    print(("Done! Took %ss"):format(math.round((tick()-timer)*100)/100))
+	if not s then writefile(("game_%s.rbxlx"):format(game.PlaceId),table.concat(temp," ").."</roblox>") end
+    print(("Done! Took %ss"):format(math.round((tick()-timer)*100)/100)) 
 end
