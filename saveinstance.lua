@@ -1,7 +1,7 @@
 -- stop skidding bro
 
 getgenv().saveinstance = function(saving)
-    if not saving then saving = {workspace,game.Lighting,game.ReplicatedFirst,game.ReplicatedStorage,game.StarterGui,game.StarterPack,game.StarterPlayer,game.Teams} end 
+    if not saving then saving = {workspace,game.Lighting,game.ReplicatedFirst,game.ReplicatedStorage,game.StarterGui,game.StarterPack,game.Teams} end 
     getgenv().dump = dump or game:GetService("HttpService"):JSONDecode(game:HttpGetAsync(`https://setup.rbxcdn.com/{game:HttpGetAsync("https://setup.rbxcdn.com/versionQTStudio")}-API-Dump.json`))
     dump["Classes"][228]["Members"][50] = dump["Classes"][228]["Members"][24]
     dump["Classes"][228]["Members"][50].Name = "Position"    
