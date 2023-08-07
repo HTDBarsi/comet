@@ -1,3 +1,5 @@
+-- stop skidding bro
+
 getgenv().saveinstance = function(saving)
     if not saving then saving = {workspace,game.Lighting,game.ReplicatedFirst,game.ReplicatedStorage,game.StarterGui,game.StarterPack,game.StarterPlayer,game.Teams} end 
     getgenv().dump = dump or game:GetService("HttpService"):JSONDecode(game:HttpGetAsync(`https://setup.rbxcdn.com/{game:HttpGetAsync("https://setup.rbxcdn.com/versionQTStudio")}-API-Dump.json`))
@@ -173,9 +175,6 @@ getgenv().saveinstance = function(saving)
         end
         write("</Item>")
     end
-    s,re = pcall(function()
-        writefile(game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Name..".rbxlx",table.concat(temp," ").."</roblox>")
-    end)
-	if not s then writefile(("game_%s.rbxlx"):format(game.PlaceId),table.concat(temp," ").."</roblox>") end
+    writefile(("game_%s.rbxlx"):format(game.PlaceId),table.concat(temp," ").."</roblox>")
     print(("Done! Took %ss"):format(math.round((tick()-timer)*100)/100)) 
 end
