@@ -1,6 +1,22 @@
 -- stop skidding bro
 
 getgenv().saveinstance = function(saving)
+    local ScreenGui = Instance.new("ScreenGui")
+    local TextLabel = Instance.new("TextLabel")
+    
+    ScreenGui.Parent = gethui()
+    ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    
+    TextLabel.Parent = ScreenGui
+    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.BorderSizePixel = 0
+    TextLabel.Position = UDim2.new(1, -300, 0.5, -50)
+    TextLabel.Size = UDim2.new(0, 300, 0, 100)
+    TextLabel.Font = Enum.Font.FredokaOne
+    TextLabel.Text = "If you have any questions or issues, make sure to report them by pinging @theunrealninja in the discord!"
+    TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel.TextScaled = true
+    TextLabel.TextWrapped = true
     if not saving then saving = {workspace,game.Lighting,game.ReplicatedFirst,game.ReplicatedStorage,game.StarterGui,game.StarterPack,game.Teams} end 
     getgenv().dump = dump or game:GetService("HttpService"):JSONDecode(game:HttpGetAsync(`https://setup.rbxcdn.com/{game:HttpGetAsync("https://setup.rbxcdn.com/versionQTStudio")}-API-Dump.json`))
     dump["Classes"][228]["Members"][50] = dump["Classes"][228]["Members"][24]
@@ -162,6 +178,7 @@ getgenv().saveinstance = function(saving)
     local timer = tick()
     local temp = {}
     function write(txt)
+        write(txt)
         table.insert(temp,txt)
     end
     write([[<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">]])
