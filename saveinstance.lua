@@ -178,7 +178,6 @@ getgenv().saveinstance = function(saving)
     local timer = tick()
     local temp = {}
     function write(txt)
-        write(txt)
         table.insert(temp,txt)
     end
     write([[<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">]])
